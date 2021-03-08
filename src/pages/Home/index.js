@@ -46,18 +46,18 @@ const Home = () => {
         }
       }
     };
-  }, []);
+  });
 
   useEffect(() => {
     if (fetchChars !== null) {
       if (fetchChars.length < limit) setHasMore(false);
       setSeries([...series, ...fetchChars]);
     }
-  }, [fetchChars]);
+  }, [fetchChars, series]);
 
   useEffect(() => {
     dispatch(fetch({ page, orderBy: orderBy.value, limit }));
-  }, [page, orderBy]);
+  });
 
   const CardItem = ({ data, index }) => {
     const handleClick = () => {
